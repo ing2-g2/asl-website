@@ -1,16 +1,15 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, Response , request
 import cv2
 import numpy as np
 import mediapipe as mp
 from tensorflow.keras.models import load_model
 import time
-import base64
-from io import BytesIO
-from PIL import Image
+from flask import jsonify
+
 
 app = Flask(__name__)
 
-# Load model and mediapipe
+# Load model and mediapipe outside the loop
 model = load_model('asl_cnn_model.h5')
 image_size = 32
 mp_hands = mp.solutions.hands
@@ -34,27 +33,16 @@ def predict_asl_letter(prediction):
     asl_letters = 'ABCDEFGHIKLMNOPQRSTUVWXY'  # No J, Z
     return asl_letters[prediction]
 
-@app.route('/')
-def index():
-    return render_template('index.html')
-
-@app.route('/predict_frame', methods=['POST'])
-def predict_frame():
+def generate_frames():
     global previous_letter, recognized_text, last_letter_time
 
-    data = request.get_json()
-    if 'image' not in data:
-        return jsonify({'error': 'No image provided'}), 400
+    cap = cv2.VideoCapture(0)
 
-    try:
-        # Decode base64 image
-        image_data = data['image'].split(',')[1]
-        image_bytes = base64.b64decode(image_data)
-        image = Image.open(BytesIO(image_bytes)).convert('RGB')
-        frame = np.array(image)
+    while True:
+        success, frame = cap.read()
+        if not success:
+            break
 
-        # Preprocess frame for hand detection
-        frame = cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
         frame = cv2.flip(frame, 1)
         frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
         result = hands.process(frame_rgb)
@@ -87,7 +75,10 @@ def predict_frame():
                     confidence = np.max(prediction) * 100
                     asl_letter = predict_asl_letter(predicted_label)
 
-        # Update recognized text logic
+                    cv2.rectangle(frame, (x_min, y_min), (x_max, y_max), (41, 31, 116), 2)
+                    cv2.putText(frame, f'{asl_letter} ({confidence:.1f}%)', (x_min, y_min - 10),
+                                cv2.FONT_HERSHEY_SIMPLEX, 1, (41, 31, 116), 2)
+
         current_time = time.time()
         if asl_letter != "" and asl_letter != previous_letter:
             last_letter_time = current_time
@@ -97,25 +88,41 @@ def predict_frame():
             last_letter_time = current_time
             previous_letter = ""
 
-        return jsonify({'letter': asl_letter})
-    
-    except Exception as e:
-        return jsonify({'error': str(e)}), 500
+        cv2.putText(frame, f'Text: {recognized_text}', (10, 460),
+                    cv2.FONT_HERSHEY_SIMPLEX, 1, (41, 31, 116), 2)
+
+        ret, buffer = cv2.imencode('.jpg', frame)
+        frame = buffer.tobytes()
+
+        yield (b'--frame\r\n'
+               b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+@app.route('/video_feed')
+def video_feed():
+    return Response(generate_frames(),
+                    mimetype='multipart/x-mixed-replace; boundary=frame')
 
 @app.route('/update_text', methods=['POST'])
 def update_text():
     global recognized_text
 
+    # Get the key press data from the frontend
     key = request.json.get('key')
 
-    if key == 'c':
+    # Handle key presses
+    if key == 'c':  # Clear the recognized text
         recognized_text = ''
-    elif key == 's':
+    elif key == 's':  # Add a space to the recognized text
         recognized_text += " "
-    elif key == 'b':
+    elif key == 'b':  # Remove the last character (backspace)
         recognized_text = recognized_text[:-1]
 
     return {'status': 'success', 'recognized_text': recognized_text}
+
 
 @app.route('/recognized_text')
 def get_recognized_text():
