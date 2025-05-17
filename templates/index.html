@@ -79,28 +79,30 @@
     </div>
 
     <!-- Camera Section -->
-    <div class="content">
-      
-       
-      <section id="sec3">
-        <img src="{{ url_for('video_feed') }}" width="610" height="420" id="cam">
-        <img src="{{ url_for('static', filename='assets/81ed8659-179f-4109-9964-29dd54fc281b-removebg-preview.png') }}" id="img4">
-        
-        </section>
-        <img src="{{ url_for('static', filename='/assets/Get_a_premium_transparent_speech_bubble_sticker_by_Darakoon_Jaktreemongkol_-removebg-preview.png') }}" id="img5" >
-          <div class="prediction">
-            <h2>Prediction : </h2>
-            <div id="recognized-text" style="margin-top: 20px; font-size: 35px;  ">
-               —
-            </div>
-           <section id="sec5">
-          <p><span id="B">B</span>   backspace</p>
-          <p><span id="B">S</span>   space</p>
-          <p><span id="B">C</span>   delete all</p>
-          </section>
-          </div>
-          
-    </div>
+    <!-- Replace this inside the Camera Section -->
+<div class="content">
+  <section id="sec3">
+    <!-- Updated video and canvas elements -->
+    <video id="webcam" width="610" height="420" autoplay playsinline></video>
+    <canvas id="canvas" width="610" height="420" style="display: none;"></canvas>
+
+    <img src="{{ url_for('static', filename='assets/81ed8659-179f-4109-9964-29dd54fc281b-removebg-preview.png') }}" id="img4">
+  </section>
+
+  <img src="{{ url_for('static', filename='/assets/Get_a_premium_transparent_speech_bubble_sticker_by_Darakoon_Jaktreemongkol_-removebg-preview.png') }}" id="img5">
+
+  <div class="prediction">
+    <h2>Prediction : </h2>
+    <div id="recognized-text" style="margin-top: 20px; font-size: 35px;">—</div>
+
+    <section id="sec5">
+      <p><span id="B">B</span> backspace</p>
+      <p><span id="B">S</span> space</p>
+      <p><span id="B">C</span> delete all</p>
+    </section>
+  </div>
+</div>
+
 
     <!-- About Section -->
     <div class="content">
