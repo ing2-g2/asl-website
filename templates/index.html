@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HDR ASL</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  
+  <!-- Header Section -->
+  <header>
+    
+    <div id="logo">
+      <h2 id="t1">ASL.Net</h2>
+    </div>
+    <div class="container">
+      <div class="tab_box">
+        <button class="tab_btn active"><i class="fa-solid fa-house-user"></i> Home</button>
+        <button class="tab_btn"><i class="fa-solid fa-hands-asl-interpreting"></i> ASL</button>
+        <button class="tab_btn"><i class="fa-solid fa-camera-retro"></i> Camera</button>
+        <button class="tab_btn"><i class="fa-solid fa-circle-info"></i> About</button>
+        <div class="line"></div>
+      </div>
+    </div>
+    
+  </header>
+
+  <!-- Main Content -->
+  <div class="content_box">
+    <!-- Home Section -->
+    <div class="content active">
+      <img src="{{ url_for('static', filename='assets/photo_5780804072796965085_y-removebg-preview.png') }}" id="img1" width="400">
+      <img src="{{ url_for('static', filename='assets/photo_5780804072796965094_y-removebg-preview.png') }}" id="img2" width="400">
+      <section id="sec2">
+        <h1 id="title2">American Sign Language</h1>
+        <h2 id="title3">Hand Gesture Recognition Using CNN</h2>
+        <p id="p1">Try our system to accurately interpret ASL, make communication much easier and fun!<br>And obviously for learning purposes, using deep learning tools mainly CNNs.</p>
+      </section>
+    </div>
+
+    <!-- ASL Section -->
+    <div class="content">
+      
+      <section id="sec3">
+        <h2 id="title4">ASL Letters : </h2>
+        <div class="type">
+           
+           <div class="card"><img src="{{ url_for('static', filename='assets/Aa-removebg-preview (1).png') }}" width="200px"><h1>A</h1></div>
+           <div class="card"><img src="{{ url_for('static', filename='assets/Bb-removebg-preview (1).png') }}" width="150px"><h1>B</h1></div>
+           <div class="card"><img src="{{ url_for('static', filename='assets/Cc-removebg-preview (1).png') }}" width="200px"><h1>C</h1></div>
+           <div class="card"><img src="{{ url_for('static', filename='assets/Dd-removebg-preview (1).png') }}" width="130px"><h1>D</h1></div>
+           <div class="card"><img src="{{ url_for('static', filename='assets/Ee-removebg-preview (1).png') }}" width="130px"><h1>E</h1></div>
+           <div class="card"><img src="{{ url_for('static', filename='assets/Ff-removebg-preview (1).png') }}" width="130px"><h1>F</h1></div>
+           <div class="card"><img src="{{ url_for('static', filename='assets/Gg-removebg-preview (1).png') }}" width="200px"><h1>G</h1></div>
+           <div class="card"><img src="{{ url_for('static', filename='assets/Hh-removebg-preview (1).png') }}" width="200px"><h1>H</h1></div>
+           <div class="card"><img src="{{ url_for('static', filename='assets/Ii-removebg-preview (1).png') }}" width="150px"><h1>I</h1></div>
+           <div class="card"><img src="{{ url_for('static', filename='assets/Jj-removebg-preview (1).png') }}" width="200px"><h1>J</h1></div>
+           <div class="card"><img src="{{ url_for('static', filename='assets/Kk-removebg-preview (1).png') }}" width="130px"><h1>K</h1></div>
+           <div class="card"><img src="{{ url_for('static', filename='assets/Ll-removebg-preview (1).png') }}" width="200px"><h1>L</h1></div>
+           <div class="card"><img src="{{ url_for('static', filename='assets/Mm-removebg-preview (1).png') }}" width="150px"><h1>M</h1></div>
+           <div class="card"><img src="{{ url_for('static', filename='assets/Nn-removebg-preview (1).png') }}" width="150px"><h1>N</h1></div>
+           <div class="card"><img src="{{ url_for('static', filename='assets/Oo-removebg-preview (1).png') }}" width="150px"><h1>O</h1></div>
+           <div class="card"><img src="{{ url_for('static', filename='assets/Pp-removebg-preview (1).png') }}" width="220px"><h1>P</h1></div>
+           <div class="card"><img src="{{ url_for('static', filename='assets/Qq-removebg-preview (1).png') }}" width="200px"><h1>Q</h1></div>
+           <div class="card"><img src="{{ url_for('static', filename='assets/Rr-removebg-preview (1).png') }}" width="130px"><h1>R</h1></div>
+           <div class="card"><img src="{{ url_for('static', filename='assets/Ss-removebg-preview (1).png') }}" width="130px"><h1>S</h1></div>
+           <div class="card"><img src="{{ url_for('static', filename='assets/Tt-removebg-preview (1).png') }}" width="130px"><h1>T</h1></div>
+           <div class="card"><img src="{{ url_for('static', filename='assets/Uu-removebg-preview (1).png') }}" width="130px"><h1>U</h1></div>
+           <div class="card"><img src="{{ url_for('static', filename='assets/Vv-removebg-preview (1).png') }}" width="130px"><h1>V</h1></div>
+           <div class="card"><img src="{{ url_for('static', filename='assets/Ww-removebg-preview (1).png') }}" width="130px"><h1>W</h1></div>
+           <div class="card"><img src="{{ url_for('static', filename='assets/Xx-removebg-preview (1).png') }}" width="150px"><h1>X</h1></div>
+           <div class="card"><img src="{{ url_for('static', filename='assets/Yy-removebg-preview (1).png') }}" width="200px"><h1>Y</h1></div>
+           <div class="card"><img src="{{ url_for('static', filename='assets/Zz-removebg-preview (1).png') }}" width="200px"><h1>Z</h1></div>
+           
+    </div>
+    </section>
+    </div>
+
+    <!-- Camera Section -->
+    <div class="content">
+      
+       
+      <section id="sec3">
+        <img src="{{ url_for('video_feed') }}" width="610" height="420" id="cam">
+        <img src="{{ url_for('static', filename='assets/81ed8659-179f-4109-9964-29dd54fc281b-removebg-preview.png') }}" id="img4">
+        
+        </section>
+        <img src="{{ url_for('static', filename='/assets/Get_a_premium_transparent_speech_bubble_sticker_by_Darakoon_Jaktreemongkol_-removebg-preview.png') }}" id="img5" >
+          <div class="prediction">
+            <h2>Prediction : </h2>
+            <div id="recognized-text" style="margin-top: 20px; font-size: 35px;  ">
+               —
+            </div>
+           <section id="sec5">
+          <p><span id="B">B</span>   backspace</p>
+          <p><span id="B">S</span>   space</p>
+          <p><span id="B">C</span>   delete all</p>
+          </section>
+          </div>
+          
+    </div>
+
+    <!-- About Section -->
+    <div class="content">
+      <section id="sec4">
+      <h2 id="head1">About us</h2>
+            <p >About group9 : <br> </p> 
+            <h3>members : </h3>
+            <p>
+            + Meriem Hmidi.<br>
+            + Meriem Chehd Merad.<br>
+            + Manar Hafidi.<br>
+            + Rawand Rahal.<br>
+            </p>
+            <h3>contact infos : </h3>
+            <p>ing2.project.g09@gmail.com</p>
+</section>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="{{ url_for('static', filename='asl_web.js') }}"></script>
+</body>
+</html>

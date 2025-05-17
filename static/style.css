@@ -1,0 +1,265 @@
+@font-face {
+    font-family: tantwinkle ;
+    src: url(fonts/TANTWINKLE.ttf);
+}
+@font-face {
+    font-family: alta ;
+    src: url(fonts/alta-regular.otf);
+}
+@font-face {
+    font-family:ser ;
+    src: url(fonts/Fool\ For\ Love\ -\ TTF.ttf);
+}
+@font-face {
+    font-family: seasons;
+    src: url(fonts/Fontspring-DEMO-theseasons-reg.otf);
+}
+@font-face {
+    font-family: brownsugar;
+    src: url(fonts/brown-sugar.ttf);
+}
+@font-face {
+  font-family: cal;
+  src: url(fonts/Calgary_DEMO.ttf);
+}
+@font-face {
+  font-family: key;
+  src: url(fonts/212\ Keyboard.otf);
+}
+body {
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  background-color: #dcd0ca;
+  
+}
+
+#logo{
+position: absolute;
+right: 500px;
+bottom: 240px;
+
+
+box-shadow: #741f29;
+}
+#t1{
+    position: absolute;
+    left: 70px;
+    bottom: 0px;
+    font-family: brownsugar;
+    color: #741f29;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    position: absolute;
+   
+  }
+.container{
+    
+    width : 600px;
+    height: 1px;
+    padding: 10px ;
+    border: none;
+    position: absolute;
+    top: 130px;
+    padding: auto;
+    
+    
+}
+.tab_box{
+    width:100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 2px solid #741f29;
+    position: absolute;
+    bottom: 370px;
+    right: 50px;
+    
+    
+   
+}
+.tab_box .tab_btn{
+    font-size: 18px;
+    font-weight: 600;
+    color: black;
+    background: none;
+    border: none;
+    padding: 19px;
+    cursor: pointer;
+    font-family: alta;
+}
+.tab_box .tab_btn.active{
+    
+    color: #741f29;
+}
+.content_box{
+    padding: 20px;
+}
+.content_box .content{
+    display: none;
+    animation: moving .5s ease;
+}
+
+.content_box .content.active{
+    display: block;
+}
+.content_box .content h2{
+    margin-bottom: 10px;
+}
+
+.prediction {
+  
+  padding: 1.5rem 2rem;
+  border-radius: 1.2rem;
+  
+  text-align: center;
+  max-width: 400px;
+  position: relative;
+  bottom: 850px;
+  left: 5px;
+}
+.prediction h2 {
+  margin: 0 0 1rem 0;
+  font-family: cal;
+}
+
+.prediction #recognized-text {
+  font-family: ser;
+  font-size: 3em;
+  font-weight: bold;
+  color: #9b2e41;
+  margin: 0.5rem 0;
+}
+  .line{
+    position: absolute;
+    top: 55px;
+    left: 31px;
+    width: 90px;
+    height: 5px;
+    background-color: #741f29;
+    border-radius: 10px;
+    transition: all .3s ease-in-out;
+}
+
+  
+  #img1{
+    position: relative;
+    left: 650px;
+    top: 150px;
+    box-shadow: 2px,2px #741f29;
+  }
+  #img2{
+    position: relative;
+    right: 700px;
+    top: 0px;
+    box-shadow: 2px,2px #741f29;
+  }
+  #sec2{
+    position: relative;
+    bottom: 250px;
+    right: 150px;
+  }
+  #title2{
+    font-size: 3em;
+    font-family: tantwinkle;
+    color: #4b0b0b;
+    border-bottom: 4px solid #4b0b0b;
+  }
+  #title3{
+    font-size: 2em;
+    font-family: alta;
+    
+    
+  }
+  #title4{
+    font-size: 3em;
+    font-family: tantwinkle;
+    color: #4b0b0b;
+    
+    position: relative;
+    margin-bottom: 100px;
+    left: 330px;
+  }
+  #p1{
+    font-size: 1em;
+    font-family: alta;
+  }
+ #img4{
+  position: relative;
+  left: 170px;
+  bottom: 400px;
+  width: 950px;
+ }
+#cam{
+  position: relative;
+  left: 295px;
+  top: 170px;
+}
+#sec3{
+  position: relative;
+  top: 550px;
+}
+#img5{
+  position: relative;
+  bottom: 600px;
+  width: 500px;
+  left: 0px;
+  
+}
+#sec3 {
+  position: relative;
+  padding: 20px;
+  left: 10px;
+  margin-top: 200px;
+  
+}
+
+.type {
+  display: grid;
+  grid-template-columns: repeat(5, 2fr); 
+  gap: 10px;
+  justify-items: center; 
+}
+.card {
+  transition: 0.5s;
+  overflow: hidden;
+}
+
+.card img {
+  max-width: 60%; 
+  height: auto;
+  display: block;
+}
+
+.card:hover {
+  transform: scale(1.1);
+  z-index: 1;
+}
+#sec4{
+    font-family: alta;
+    
+    text-align: center;
+    
+}
+#head1{
+    font-family: brownsugar;
+    border-bottom:  solid;
+}
+#B{
+  font-family: key;
+  font-size: 50px;
+}
+#sec5{
+  position: relative;
+  top: 200px;
+  right: 100px;
+  font-family: cal;
+  font-weight: bold;
+}
