@@ -17,10 +17,13 @@ tabs.forEach((tab, index) => {
     all_content[index].classList.add('active');
 
     // Start or stop webcam based on tab
-    if (index === 2) { // Camera tab
-      startCamera();
-      startFetchingRecognizedText();
-    } else {
+    if (index === 2) {
+  setTimeout(() => {
+    startCamera();
+    startFetchingRecognizedText();
+  }, 200); // wait for tab switch and DOM render
+}
+ else {
       stopCamera();
       stopFetchingRecognizedText();
     }
